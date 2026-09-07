@@ -26,6 +26,13 @@ jobs:
       - name: Unzip site
         run: unzip -o PdfSplitter-website.zip
 
+      - name: Add APK if present
+        run: |
+          if [ -f pdf-splitter.apk ]; then
+            mkdir -p PdfSplitterSite/downloads
+            cp pdf-splitter.apk PdfSplitterSite/downloads/pdf-splitter.apk
+          fi
+
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
